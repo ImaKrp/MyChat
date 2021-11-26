@@ -5,15 +5,16 @@ import { Layout } from "../Layout";
 import { Loading } from "../components/Loading";
 
 const Landing = lazy(() => import("../Pages/Landing"));
+const Room = lazy(() => import("../Pages/Room"));
 
 export const AppRoutes: React.FC = () => {
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading/>}>
         <Layout>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path=":roomId" element={<Landing />} />
+            <Route path=":roomId" element={<Room />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Layout>

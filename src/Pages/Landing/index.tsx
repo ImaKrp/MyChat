@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Container, Input, InputDiv, Submit } from "./style";
+import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
+  const navigate = useNavigate();
+
   const [name, setName] = useState<string>();
   const [roomId, setRoomId] = useState<string>();
 
   const [nameError, setNameError] = useState("");
   const [roomError, setRoomError] = useState("");
-
-
 
   const changeRoomId = (value: string) => {
     if (!roomId) setRoomId(`#${value}`);
@@ -17,14 +18,20 @@ const Landing: React.FC = () => {
   };
 
   const changeName = (value: string) => {
-   setName(value);
-   setNameError(value ? "" : "⨉ Please, insert your name.");
+    setName(value);
+    setNameError(value ? "" : "⨉ Please, insert your name.");
   };
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(!name) setNameError("⨉ Please, insert your name.")
-    if(!roomId) setRoomError("⨉ Please, insert a room id.")
+
+    if (!name) setNameError("⨉ Please, insert your name.");
+
+    if (!roomId) setRoomError("⨉ Please, insert a room id.");
+
+    if (!name || !roomId) return;
+
+    navigate(`/${roomId.replace(/\D/g,'')}`);
   };
 
   return (
