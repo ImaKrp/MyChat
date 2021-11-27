@@ -51,6 +51,13 @@ export const Container = styled.form`
     font-size: 1.8rem;
     font-weight: 400;
   }
+
+  @media (max-width: 412px) and (max-height: 824px) and (orientation: portrait) {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Input = styled.input`
@@ -79,7 +86,7 @@ export const InputDiv = styled.div`
     margin-left: 0.7rem;
     font-size: 1.2rem;
     animation: ${opacity} 0.5s;
-    color: var(--error)
+    color: var(--error);
   }
 `;
 

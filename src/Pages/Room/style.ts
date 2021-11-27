@@ -49,6 +49,13 @@ export const Container = styled.div`
   background-color: var(--chat-bg);
   animation: ${showContainer} 0.5s;
   position: relative;
+
+  @media (max-width: 610px) and (max-height: 824px) and (orientation: portrait) {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Header = styled.header`
@@ -178,6 +185,10 @@ export const IncomingMessage = styled.div`
     height: 0;
     border-top: 10px solid var(--incoming-message);
     border-left: 14px solid transparent;
+  }
+
+  @media (max-width: 610px) {
+    max-width: 100%;
   }
 `;
 
