@@ -38,7 +38,7 @@ on client folder.
 
 ---
 
-## 👨‍💻 ｜ Launch Frontend
+## 👨‍💻 ｜ Launch Backend
 
 > infos:
 
