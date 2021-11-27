@@ -50,7 +50,7 @@ export const Container = styled.div`
   animation: ${showContainer} 0.5s;
   position: relative;
 
-  @media (max-width: 610px) and (max-height: 824px) and (orientation: portrait) {
+  @media (max-width: 610px) and (max-height: 824px) {
     width: 100%;
     height: 100%;
     align-items: center;
