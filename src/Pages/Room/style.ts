@@ -50,15 +50,14 @@ export const Container = styled.div`
   animation: ${showContainer} 0.5s;
   position: relative;
 
-  @media (max-height: 700px) {
+  @media (max-height: 823px) {
     height: 100vh;
     align-items: center;
     justify-content: center;
   }
 
-  @media (max-width: 610px) and (max-height: 824px) {
+  @media (max-width: 610px) {
     width: 100%;
-    height: 100vh;
     align-items: center;
     justify-content: center;
   }
