@@ -13,8 +13,7 @@ const Landing: React.FC = () => {
   const [roomError, setRoomError] = useState("");
 
   const changeRoomId = (value: string) => {
-    if (!roomId) setRoomId(`#${value}`);
-    else setRoomId(value);
+    setRoomId(value);
     setRoomError(value ? "" : "⨉ Please, insert a room id.");
   };
 
@@ -35,7 +34,7 @@ const Landing: React.FC = () => {
     changeLocalData({ itemName: "@MyChat:User", object: name });
     changeLocalData({ itemName: "@MyChat:Room", object: roomId });
 
-    navigate(`/${roomId.replace(/\D/g, "")}`);
+    navigate(`/${roomId}`);
   };
 
   return (
@@ -61,7 +60,7 @@ const Landing: React.FC = () => {
         <Input
           placeholder="Insert the room id here"
           value={roomId}
-          type="text"
+          type="number"
           onChange={(e) => changeRoomId(e.target.value)}
         />
         {roomError && <span>{roomError}</span>}

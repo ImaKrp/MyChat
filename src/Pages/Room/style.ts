@@ -52,7 +52,7 @@ export const Container = styled.div`
 
   @media (max-width: 610px) and (max-height: 824px) and (orientation: portrait) {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
   }

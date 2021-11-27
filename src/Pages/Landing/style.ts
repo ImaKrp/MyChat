@@ -52,12 +52,13 @@ export const Container = styled.form`
     font-weight: 400;
   }
 
-  @media (max-width: 412px) and (max-height: 824px) and (orientation: portrait) {
+  @media (max-width: 412px) and (max-height: 824px) {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
   }
+  
 `;
 
 export const Input = styled.input`
