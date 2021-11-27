@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Container, Input, InputDiv, Submit } from "./style";
 import { useNavigate } from "react-router-dom";
-import { changeLocalData, getLocalData } from "../../utils/Storage";
+import { useChat } from "../../hooks/useChat";
 
 const Landing: React.FC = () => {
   const navigate = useNavigate();
-
-  const [name, setName] = useState(getLocalData("@MyChat:User") ?? "");
-  const [roomId, setRoomId] = useState(getLocalData("@MyChat:Room") ?? "");
+  const { name: previousName, roomId: previousRoom, changeData } = useChat();
+  const [name, setName] = useState(previousName ?? "");
+  const [roomId, setRoomId] = useState(previousRoom ?? "");
 
   const [nameError, setNameError] = useState("");
   const [roomError, setRoomError] = useState("");
@@ -31,9 +31,7 @@ const Landing: React.FC = () => {
 
     if (!name || !roomId) return;
 
-    changeLocalData({ itemName: "@MyChat:User", object: name });
-    changeLocalData({ itemName: "@MyChat:Room", object: roomId });
-
+    changeData(name, roomId)
     navigate(`/${roomId}`);
   };
 
@@ -52,6 +50,7 @@ const Landing: React.FC = () => {
           value={name}
           type="text"
           onChange={(e) => changeName(e.target.value)}
+          required
         />
         {nameError && <span>{nameError}</span>}
       </InputDiv>
@@ -62,6 +61,7 @@ const Landing: React.FC = () => {
           value={roomId}
           type="number"
           onChange={(e) => changeRoomId(e.target.value)}
+          
         />
         {roomError && <span>{roomError}</span>}
       </InputDiv>

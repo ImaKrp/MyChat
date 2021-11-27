@@ -52,7 +52,7 @@ export const Container = styled.form`
     font-weight: 400;
   }
 
-  @media (max-width: 412px) and (max-height: 824px) {
+  @media (max-width: 415px) and (max-height: 824px) {
     width: 100%;
     min-height: 100vh;
     align-items: center;

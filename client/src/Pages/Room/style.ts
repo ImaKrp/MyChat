@@ -1,34 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
-const fromLeft = keyframes`
-  0% {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  50% {
-    opacity: .3;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`;
-
-const fromRight = keyframes`
-  0% {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  50% {
-    opacity: .3;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-`;
-
 const showContainer = keyframes`
   0% {
     transform: scale(1.3);
@@ -50,18 +22,18 @@ export const Container = styled.div`
   animation: ${showContainer} 0.5s;
   position: relative;
 
-  @media (max-height: 700px) {
+  @media (max-height: 823px) {
     height: 100vh;
     align-items: center;
     justify-content: center;
   }
 
-  @media (max-width: 610px) and (max-height: 824px) {
+  @media (max-width: 610px) {
     width: 100%;
-    height: 100vh;
     align-items: center;
     justify-content: center;
   }
+
 `;
 
 export const Header = styled.header`
@@ -171,7 +143,6 @@ export const IncomingMessage = styled.div`
   border-radius: 0.4rem;
   margin-bottom: 0.3rem;
   word-wrap: break-word;
-  animation: ${fromLeft} 0.5s;
   position: relative;
 
   span {
@@ -203,7 +174,6 @@ export const IncomingMessage = styled.div`
 export const OutgoingMessage = styled(IncomingMessage)`
   background-color: var(--outgoing-message);
   margin-left: auto;
-  animation: ${fromRight} 0.5s;
 
   &::after {
     content: "";
