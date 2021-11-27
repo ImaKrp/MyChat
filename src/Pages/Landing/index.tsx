@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Container, Input, InputDiv, Submit } from "./style";
 import { useNavigate } from "react-router-dom";
+import { changeLocalData, getLocalData } from "../../utils/Storage";
 
 const Landing: React.FC = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState<string>();
-  const [roomId, setRoomId] = useState<string>();
+  const [name, setName] = useState(getLocalData("@MyChat:User") ?? "");
+  const [roomId, setRoomId] = useState(getLocalData("@MyChat:Room") ?? "");
 
   const [nameError, setNameError] = useState("");
   const [roomError, setRoomError] = useState("");
@@ -31,7 +32,10 @@ const Landing: React.FC = () => {
 
     if (!name || !roomId) return;
 
-    navigate(`/${roomId.replace(/\D/g,'')}`);
+    changeLocalData({ itemName: "@MyChat:User", object: name });
+    changeLocalData({ itemName: "@MyChat:Room", object: roomId });
+
+    navigate(`/${roomId.replace(/\D/g, "")}`);
   };
 
   return (
@@ -47,6 +51,7 @@ const Landing: React.FC = () => {
         <Input
           placeholder="Insert your name here"
           value={name}
+          type="text"
           onChange={(e) => changeName(e.target.value)}
         />
         {nameError && <span>{nameError}</span>}
@@ -56,6 +61,7 @@ const Landing: React.FC = () => {
         <Input
           placeholder="Insert the room id here"
           value={roomId}
+          type="text"
           onChange={(e) => changeRoomId(e.target.value)}
         />
         {roomError && <span>{roomError}</span>}

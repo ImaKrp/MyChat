@@ -31,7 +31,10 @@ export default createGlobalStyle`
     --gray: #818587;
     --light-gray: #a6a8ab;
 
+   --chat-bg: #0D1418;
+
     --detail-gray: #f1f1f21c;
+    --darker-detail-gray: #f1f1f20A;
 
     --input: #33383B;
 
@@ -42,8 +45,8 @@ export default createGlobalStyle`
 
     --highlight: #00a7af;
 
-    --receiving-message: #262D31;
-    --outgoing-message: #055962;
+    --incoming-message: #262D31;
+    --outgoing-message: #244156;
 
     --error: #CF6679;
 
@@ -118,4 +121,19 @@ export default createGlobalStyle`
     -moz-appearance: textfield;
   }
 
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f1f1f24d;
+    transition: background 0.3s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f1f1f26e;
+  }
 `;
