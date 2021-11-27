@@ -50,6 +50,12 @@ export const Container = styled.div`
   animation: ${showContainer} 0.5s;
   position: relative;
 
+  @media (max-height: 700px) {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (max-width: 610px) and (max-height: 824px) {
     width: 100%;
     height: 100vh;
@@ -69,6 +75,7 @@ export const Header = styled.header`
   align-items: center;
   padding: 0 1.6rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  z-index: 1;
 `;
 
 export const Footer = styled.form`
@@ -80,6 +87,7 @@ export const Footer = styled.form`
   justify-content: flex-end;
   gap: 1rem;
   padding-right: 1.7rem;
+  padding-left: 1rem;
 `;
 
 export const MessageBox = styled.div`

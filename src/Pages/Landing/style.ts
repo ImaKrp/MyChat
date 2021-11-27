@@ -54,7 +54,7 @@ export const Container = styled.form`
 
   @media (max-width: 412px) and (max-height: 824px) {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     align-items: center;
     justify-content: center;
   }

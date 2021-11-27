@@ -8,4 +8,5 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: var(--dim-gray);
+  overflow: hidden;
 `;
