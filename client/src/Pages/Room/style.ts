@@ -33,7 +33,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
-
 `;
 
 export const Header = styled.header`
@@ -144,6 +143,12 @@ export const IncomingMessage = styled.div`
   margin-bottom: 0.3rem;
   word-wrap: break-word;
   position: relative;
+  margin-top: 0.1rem;
+
+  & ~ & {
+    margin-bottom: 0.2rem;
+    margin-top: 0rem;
+  }
 
   span {
     color: var(--white60);

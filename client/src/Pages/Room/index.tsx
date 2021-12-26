@@ -76,7 +76,10 @@ const Room: React.FC = () => {
   return (
     <Container>
       <Header>
-        <Return to="/" onClick={() => localStorage.removeItem("@MyChat:Messages")}>
+        <Return
+          to="/"
+          onClick={() => localStorage.removeItem("@MyChat:Messages")}
+        >
           <svg viewBox="0 0 492 492">
             <path
               fill="currentColor"
@@ -99,22 +102,19 @@ const Room: React.FC = () => {
       </Header>
       <MessageBox>
         {messageList &&
-          messageList.map((message, index) => {
-            if (message.author === user)
-              return (
-                <OutgoingMessage key={index}>
-                  {message.message}
-                  <span>{message.time}</span>
-                </OutgoingMessage>
-              );
-            else
-              return (
-                <IncomingMessage key={index}>
-                  {message.message}
-                  <span>{message.time}</span>
-                </IncomingMessage>
-              );
-          })}
+          messageList.map((message, index) =>
+            message.author === user ? (
+              <OutgoingMessage key={index}>
+                {message.message}
+                <span>{message.time}</span>
+              </OutgoingMessage>
+            ) : (
+              <IncomingMessage key={index}>
+                {message.message}
+                <span>{message.time}</span>
+              </IncomingMessage>
+            )
+          )}
       </MessageBox>
       <Footer onSubmit={(e) => submitForm(e)}>
         <Input
